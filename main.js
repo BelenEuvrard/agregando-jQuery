@@ -9,6 +9,7 @@ $(document).ready(function(){
  const  inputServicioApagar =$('#inputGroupSelect04')
  const  inputImporteServicio =$('#importeServicio')
 
+ 
 
 form.submit(function(e){
       e.preventDefault();
@@ -22,6 +23,26 @@ form.submit(function(e){
 
 $('#saludo').prepend(` <p class="d-flex justify-content-center text-info"><strong>
  Hola ${nombre + ' ' + apellido} usted fue registrado exitosamente,¡empecemos a gestionar su economia familiar!</strong></p>`)
+
+ 
+
+////////////////////////////////////////////////DESAFIO CLASE 13////////////////////////////
+ const URLGET   = "https://jsonplaceholder.typicode.com/posts"
+//Declaramos la información a enviar
+const infoPost =  { nombre: `${nombre}`, apellido: `${apellido}`, email: `${email}`}
+
+
+//Escuchamos el evento click del botón 
+$("#botonFormulario").click(() => { 
+    $.post(URLGET, infoPost ,(respuesta, estado) => {
+        if(estado === "success"){
+          $('#saludo').prepend(` <p class="d-flex justify-content-center text-info"><strong>
+          Hola ${respuesta.nombre} usted fue registrado exitosamente,¡empecemos a gestionar su economia familiar!</strong></p>`)    
+        
+    }
+    });
+  });
+
 
       resetForm()
 
@@ -43,6 +64,7 @@ $('#saludo').prepend(` <p class="d-flex justify-content-center text-info"><stron
       UI(ingresoFamiliar);     
       newServicio(servicioApagar,importeServicio);
       resultado(saldo);
+      
     });
 
   });      
