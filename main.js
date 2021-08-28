@@ -9,7 +9,24 @@ $(document).ready(function(){
  const  inputServicioApagar =$('#inputGroupSelect04')
  const  inputImporteServicio =$('#importeServicio')
 
+ $('#parrafoBienvenida').animate({
+   'flex-basis' : '20%',
+   'padding' : '15px',
+ },3000, function(){
+   console.log('animacion terminada')
  
+ });
+
+ $('#nav').animate({
+  left: '+=100px',
+
+}, 1000,function(){
+  $('#nav').animate({
+
+    left: '-=100px',
+  }, 1000,
+);
+});
 
 form.submit(function(e){
       e.preventDefault();
@@ -25,7 +42,7 @@ $('#saludo').prepend(` <p class="d-flex justify-content-center text-info"><stron
  Hola ${nombre + ' ' + apellido} usted fue registrado exitosamente,¡empecemos a gestionar su economia familiar!</strong></p>`)
 
  
-
+/*
 ////////////////////////////////////////////////DESAFIO CLASE 13////////////////////////////
  const URLGET   = "https://jsonplaceholder.typicode.com/posts"
 //Declaramos la información a enviar
@@ -42,7 +59,7 @@ $("#botonFormulario").click(() => {
     }
     });
   });
-
+*/
 
       resetForm()
 
